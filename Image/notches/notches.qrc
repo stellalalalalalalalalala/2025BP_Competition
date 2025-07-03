@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="notches">
+    <file>charmed.png</file>
+    <file>uncharmed.png</file>
+  </qresource>
+</RCC>

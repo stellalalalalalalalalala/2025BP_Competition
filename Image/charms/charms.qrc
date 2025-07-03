@@ -1,0 +1,43 @@
+<RCC>
+  <qresource prefix="charm_big">
+    <file>2_GatheringSwarm.png</file>
+    <file>3_StalwartShell.png</file>
+    <file>4_SoulCatcher.png</file>
+    <file>5_ShamanStone.png</file>
+    <file>6_SoulEater.png</file>
+    <file>7_Dashmaster.png</file>
+    <file>8_Sprintmaster.png</file>
+    <file>9_Grubsong.png</file>
+    <file>10_GrubberflyElegy.png</file>
+    <file>11_UnbreakableHeart.png</file>
+    <file>12_UnbreakableGreed.png</file>
+    <file>13_UnbreakableStrength.png</file>
+    <file>14_SpellTwister.png</file>
+    <file>15_SteadyBody.png</file>
+    <file>16_HeavyBlow.png</file>
+    <file>17_QuickSlash.png</file>
+    <file>18_Longnail.png</file>
+    <file>19_MarkofPride.png</file>
+    <file>20_FuryoftheFallen.png</file>
+    <file>21_ThornsofAgony.png</file>
+    <file>22_BaldurShell.png</file>
+    <file>23_Flukenest.png</file>
+    <file>24_DefenderCrest.png</file>
+    <file>25_GlowingWomb.png</file>
+    <file>26_QuickFocus.png</file>
+    <file>27_DeepFocus.png</file>
+    <file>28LifebloodHeart.png</file>
+    <file>29_LifebloodCore.png</file>
+    <file>30_JoniBlessing.png</file>
+    <file>31_Hiveblood.png</file>
+    <file>32_SporeShroom.png</file>
+    <file>33_SharpShadow.png</file>
+    <file>34_ShapeofUnn.png</file>
+    <file>35_NailmasterGlory.png</file>
+    <file>36_Weaversong.png</file>
+    <file>37_DreamWielder.png</file>
+    <file>38_Dreamshield.png</file>
+    <file>39_Grimmchild.png</file>
+    <file>1_WaywardCompass.png</file>
+  </qresource>
+</RCC>

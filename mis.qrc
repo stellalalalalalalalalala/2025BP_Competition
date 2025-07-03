@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="background">
+    <file>Image/bottom_status.png</file>
+    <file>Image/bottom_name.png</file>
+    <file>Image/bottom.png</file>
+    <file>Image/stella.png</file>
+    <file>Image/background_radiance.png</file>
+  </qresource>
+</RCC>

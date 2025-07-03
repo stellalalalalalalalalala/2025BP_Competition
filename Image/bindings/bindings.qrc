@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="bindings">
+    <file>mask.png</file>
+    <file>mask_disable.png</file>
+    <file>nail.png</file>
+    <file>nail_disable.png</file>
+    <file>soul.png</file>
+    <file>soul_disable.png</file>
+    <file>mask_hoven.png</file>
+    <file>nail_hoven.png</file>
+    <file>soul_hoven.png</file>
+  </qresource>
+</RCC>

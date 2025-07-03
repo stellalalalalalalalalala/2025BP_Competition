@@ -21,7 +21,7 @@ BP tournament rules (Chinese only): https://docs.qq.com/doc/DQXdXdkpEcWp5Tmxm
 ## 使用指南 Usage
 
 
-* 想直接使用工具，可以单独下载压缩包 2025_BP_v1.0,zip
+* 想直接使用工具，可以单独下载压缩包 2025_BP_Tool_v1.0,zip
 
 * 使用步骤请参考视频 Demo.mp4
 

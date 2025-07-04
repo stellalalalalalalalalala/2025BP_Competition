@@ -26,7 +26,7 @@ BP tournament rules (Chinese only): https://docs.qq.com/doc/DQXdXdkpEcWp5Tmxm
 * 使用步骤请参考视频 Demo.mp4
 
 
-自定义文件名:
+自定义队伍名:
 
 * 修改Text文件夹下Team_1.json，Team_2.json，Team_3.json，Team_4.json的内容
  

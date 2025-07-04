@@ -9,7 +9,7 @@ BP赛赛制参考文件: https://docs.qq.com/doc/DQXdXdkpEcWp5Tmxm
 BP rules (Chinese only): https://docs.qq.com/doc/DQXdXdkpEcWp5Tmxm
 
 
-$${\color{red} 想直接使用工具，可以单独下载压缩包 2025\_BP\_Tool\_v1.1.zip }$$
+$${\color{red} 想直接使用工具，可以单独下载压缩包 2025\\_BP\\_Tool\\_v1.1.zip }$$
 
 
 ## 开发工具  Built with

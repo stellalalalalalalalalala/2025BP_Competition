@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'H:\Game\Hollow_Knight\App_BP\BP.ui'
+# Form implementation generated from reading ui file 'H:\Game\Hollow_Knight\Task\2025BP_Competition\BP.ui'
 #
 # Created by: PyQt6 UI code generator 6.9.1
 #
@@ -1215,6 +1215,20 @@ class Ui_BP(object):
         self.r2_charm_B_11.setAutoFillBackground(False)
         self.r2_charm_B_11.setText("")
         self.r2_charm_B_11.setObjectName("r2_charm_B_11")
+        self.A_first = QtWidgets.QRadioButton(parent=BP)
+        self.A_first.setGeometry(QtCore.QRect(680, 170, 100, 17))
+        font = QtGui.QFont()
+        font.setFamily("TsangerYuMo W03")
+        font.setPointSize(14)
+        self.A_first.setFont(font)
+        self.A_first.setObjectName("A_first")
+        self.B_first = QtWidgets.QRadioButton(parent=BP)
+        self.B_first.setGeometry(QtCore.QRect(1130, 170, 100, 17))
+        font = QtGui.QFont()
+        font.setFamily("TsangerYuMo W03")
+        font.setPointSize(14)
+        self.B_first.setFont(font)
+        self.B_first.setObjectName("B_first")
         self.actionyes = QtGui.QAction(parent=BP)
         font = QtGui.QFont()
         font.setFamily("TsangerYuMo W03")
@@ -1467,6 +1481,8 @@ class Ui_BP(object):
         self.r1_charm_B_10.raise_()
         self.r1_charm_B_11.raise_()
         self.current_operation.raise_()
+        self.A_first.raise_()
+        self.B_first.raise_()
         self.menu_A.addAction(self.actionyes)
         self.menu_A.addAction(self.actionno)
         self.menu_B.addAction(self.actionTeam_A1)
@@ -1502,6 +1518,8 @@ class Ui_BP(object):
         self.current_operation.setText(_translate("BP", "A队为自己挑选护符，并禁止对方使用"))
         self.Name_B2.setText(_translate("BP", "TextLabel"))
         self.button_reset.setText(_translate("BP", "重置"))
+        self.A_first.setText(_translate("BP", "A队先手"))
+        self.B_first.setText(_translate("BP", "B队先手"))
         self.actionyes.setText(_translate("BP", "yes"))
         self.actionno.setText(_translate("BP", "no"))
         self.actionTeam_A1.setText(_translate("BP", "Team_1"))

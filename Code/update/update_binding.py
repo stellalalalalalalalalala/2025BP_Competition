@@ -14,15 +14,32 @@ from PyQt6.QtWidgets import QPushButton
 
 def update_binding(self, state):
 
-	if state["step"] == 1:
-		step_A = False
-		step_B = True
-	elif state["step"] == 2:
-		step_A = True
-		step_B = False
-	else:
-		step_A = False
-		step_B = False
+	step_A = False
+	step_B = False
+
+	if self.A_first.isChecked():
+
+		if state["step"] == 1:
+			step_A = False
+			step_B = True
+		elif state["step"] == 2:
+			step_A = True
+			step_B = False
+		else:
+			step_A = False
+			step_B = False
+
+	if self.B_first.isChecked():
+
+		if state["step"] == 1:
+			step_A = True
+			step_B = False
+		elif state["step"] == 2:
+			step_A = False
+			step_B = True
+		else:
+			step_A = False
+			step_B = False
 
 	nail_A_state = state.get("binding_A")[0]
 	mask_A_state = state.get("binding_A")[1]

@@ -7,9 +7,10 @@
 #last modified  : 2025.07.03
 
 
-from PyQt6 import QtGui, QtCore
+from PyQt6 import QtGui, QtCore, QtWidgets
 from PyQt6.QtGui import QIcon, QFont, QFontDatabase, QPixmap
 from PyQt6.QtCore import Qt
+from PyQt6.QtWidgets import QButtonGroup
 
 from Code.update import *
 import json
@@ -47,6 +48,12 @@ def init_state(self, state, build):
 
 	self.score_A.setAlignment(Qt.AlignmentFlag.AlignCenter)
 	self.score_B.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+	self.A_first.setEnabled(True)
+	self.B_first.setEnabled(True)
+
+	self.A_first.setChecked(False)
+	self.B_first.setChecked(False)
 
 	self.equip_A_1.setEnabled(False)
 	self.equip_A_2.setEnabled(False)

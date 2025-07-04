@@ -77,68 +77,132 @@ def update_team(self, state):
 			self.Name_B1.setStyleSheet(qss_plain)
 
 		elif step == 1:
-			self.Name_A1.setStyleSheet(qss_highlight)
-			self.Name_B1.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
 
 		elif step == 2:
-			self.Name_A1.setStyleSheet(qss_plain)
-			self.Name_B1.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
 
 		elif step == 3:
-			self.Name_A1.setStyleSheet(qss_highlight)
-			self.Name_B1.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
 
 		elif step == 4:
-			self.Name_A1.setStyleSheet(qss_plain)
-			self.Name_B1.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
 
 		elif step == 5:
-			self.Name_A1.setStyleSheet(qss_highlight)
-			self.Name_B1.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
 
 		elif step == 6:
-			self.Name_A1.setStyleSheet(qss_plain)
-			self.Name_B1.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
 
 		elif step == 7:
-			self.Name_A1.setStyleSheet(qss_plain)
-			self.Name_B1.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
 
 		elif step == 8:
-			self.Name_A1.setStyleSheet(qss_highlight)
-			self.Name_B1.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
 
 		elif step == 9:
-			self.Name_A1.setStyleSheet(qss_plain)
-			self.Name_B1.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
 
 		elif step == 10:
-			self.Name_A1.setStyleSheet(qss_highlight)
-			self.Name_B1.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
 
 		elif step == 11:
-			self.Name_A1.setStyleSheet(qss_highlight)
-			self.Name_B1.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
 
 		elif step == 12:
-			self.Name_A1.setStyleSheet(qss_plain)
-			self.Name_B1.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
 
 		elif step == 13:
-			self.Name_A1.setStyleSheet(qss_highlight)
-			self.Name_B1.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
 
 		elif step == 14:
-			self.Name_A1.setStyleSheet(qss_plain)
-			self.Name_B1.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
 
 		elif step == 15:
-			self.Name_A1.setStyleSheet(qss_plain)
-			self.Name_B1.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
 
 		elif step == 16:
-			self.Name_A1.setStyleSheet(qss_highlight)
-			self.Name_B1.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_highlight)
+				self.Name_B1.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A1.setStyleSheet(qss_plain)
+				self.Name_B1.setStyleSheet(qss_highlight)
 
 		else:
 			self.Name_A1.setStyleSheet(qss_plain)
@@ -159,68 +223,132 @@ def update_team(self, state):
 			self.Name_B2.setStyleSheet(qss_plain)
 
 		elif step == 1:
-			self.Name_A2.setStyleSheet(qss_highlight)
-			self.Name_B2.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
 
 		elif step == 2:
-			self.Name_A2.setStyleSheet(qss_plain)
-			self.Name_B2.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
 
 		elif step == 3:
-			self.Name_A2.setStyleSheet(qss_highlight)
-			self.Name_B2.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
 
 		elif step == 4:
-			self.Name_A2.setStyleSheet(qss_plain)
-			self.Name_B2.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
 
 		elif step == 5:
-			self.Name_A2.setStyleSheet(qss_highlight)
-			self.Name_B2.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
 
 		elif step == 6:
-			self.Name_A2.setStyleSheet(qss_plain)
-			self.Name_B2.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
 
 		elif step == 7:
-			self.Name_A2.setStyleSheet(qss_plain)
-			self.Name_B2.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
 
 		elif step == 8:
-			self.Name_A2.setStyleSheet(qss_highlight)
-			self.Name_B2.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
 
 		elif step == 9:
-			self.Name_A2.setStyleSheet(qss_plain)
-			self.Name_B2.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
 
 		elif step == 10:
-			self.Name_A2.setStyleSheet(qss_highlight)
-			self.Name_B2.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
 
 		elif step == 11:
-			self.Name_A2.setStyleSheet(qss_highlight)
-			self.Name_B2.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
 
 		elif step == 12:
-			self.Name_A2.setStyleSheet(qss_plain)
-			self.Name_B2.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
 
 		elif step == 13:
-			self.Name_A2.setStyleSheet(qss_highlight)
-			self.Name_B2.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
 
 		elif step == 14:
-			self.Name_A2.setStyleSheet(qss_plain)
-			self.Name_B2.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
 
 		elif step == 15:
-			self.Name_A2.setStyleSheet(qss_plain)
-			self.Name_B2.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
 
 		elif step == 16:
-			self.Name_A2.setStyleSheet(qss_highlight)
-			self.Name_B2.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_highlight)
+				self.Name_B2.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A2.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
 
 		else:
 			self.Name_A2.setStyleSheet(qss_plain)
@@ -241,68 +369,132 @@ def update_team(self, state):
 			self.Name_B3.setStyleSheet(qss_plain)
 
 		elif step == 1:
-			self.Name_A3.setStyleSheet(qss_highlight)
-			self.Name_B3.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
 
 		elif step == 2:
-			self.Name_A3.setStyleSheet(qss_plain)
-			self.Name_B3.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
 
 		elif step == 3:
-			self.Name_A3.setStyleSheet(qss_highlight)
-			self.Name_B3.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
 
 		elif step == 4:
-			self.Name_A3.setStyleSheet(qss_plain)
-			self.Name_B3.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
 
 		elif step == 5:
-			self.Name_A3.setStyleSheet(qss_highlight)
-			self.Name_B3.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
 
 		elif step == 6:
-			self.Name_A3.setStyleSheet(qss_plain)
-			self.Name_B3.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
 
 		elif step == 7:
-			self.Name_A3.setStyleSheet(qss_plain)
-			self.Name_B3.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
 
 		elif step == 8:
-			self.Name_A3.setStyleSheet(qss_highlight)
-			self.Name_B3.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
 
 		elif step == 9:
-			self.Name_A3.setStyleSheet(qss_plain)
-			self.Name_B3.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
 
 		elif step == 10:
-			self.Name_A3.setStyleSheet(qss_highlight)
-			self.Name_B3.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
 
 		elif step == 11:
-			self.Name_A3.setStyleSheet(qss_highlight)
-			self.Name_B3.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
 
 		elif step == 12:
-			self.Name_A3.setStyleSheet(qss_plain)
-			self.Name_B3.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
 
 		elif step == 13:
-			self.Name_A3.setStyleSheet(qss_highlight)
-			self.Name_B3.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
 
 		elif step == 14:
-			self.Name_A3.setStyleSheet(qss_plain)
-			self.Name_B3.setStyleSheet(qss_highlight)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
 
 		elif step == 15:
-			self.Name_A3.setStyleSheet(qss_plain)
-			self.Name_B3.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B3.setStyleSheet(qss_highlight)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
 
 		elif step == 16:
-			self.Name_A3.setStyleSheet(qss_highlight)
-			self.Name_B3.setStyleSheet(qss_plain)
+			if self.A_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_highlight)
+				self.Name_B3.setStyleSheet(qss_plain)
+			if self.B_first.isChecked():
+				self.Name_A3.setStyleSheet(qss_plain)
+				self.Name_B2.setStyleSheet(qss_highlight)
 
 		else:
 			self.Name_A3.setStyleSheet(qss_plain)

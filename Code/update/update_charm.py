@@ -16,19 +16,30 @@ import json
 
 def update_charm(self, state, build):
 
+	step_A = False
+	step_B = False
 
-	if (state["step"] == 3) or (state["step"] == 6) or (state["step"] == 8)  or (state["step"] == 10)  or (state["step"] == 11)  or (state["step"] == 13)  or (state["step"] == 16):
-		step_A = True
-		step_B = False
-	elif (state["step"] == 4) or (state["step"] == 5) or (state["step"] == 7)  or (state["step"] == 9)  or (state["step"] == 12)  or (state["step"] == 14)  or (state["step"] == 15):
-		step_A = False
-		step_B = True
-	elif (state["step"] == 1) or (state["step"] == 2):
-		step_A = False
-		step_B = False
-	else:
-		step_A = True
-		step_B = True
+	if self.A_first.isChecked():
+		if (state["step"] == 3) or (state["step"] == 6) or (state["step"] == 8)  or (state["step"] == 10)  or (state["step"] == 11)  or (state["step"] == 13)  or (state["step"] == 16):
+			step_A = True
+			step_B = False
+		elif (state["step"] == 4) or (state["step"] == 5) or (state["step"] == 7)  or (state["step"] == 9)  or (state["step"] == 12)  or (state["step"] == 14)  or (state["step"] == 15):
+			step_A = False
+			step_B = True
+		else:
+			step_A = False
+			step_B = False
+
+	if self.B_first.isChecked():
+		if (state["step"] == 3) or (state["step"] == 6) or (state["step"] == 8)  or (state["step"] == 10)  or (state["step"] == 11)  or (state["step"] == 13)  or (state["step"] == 16):
+			step_A = False
+			step_B = True
+		elif (state["step"] == 4) or (state["step"] == 5) or (state["step"] == 7)  or (state["step"] == 9)  or (state["step"] == 12)  or (state["step"] == 14)  or (state["step"] == 15):
+			step_A = True
+			step_B = False
+		else:
+			step_A = False
+			step_B = False
 
 	with open("Text/CharmData.json", "r") as file:
 		charmData = json.load(file)

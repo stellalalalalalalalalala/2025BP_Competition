@@ -3691,6 +3691,44 @@
     <string/>
    </property>
   </widget>
+  <widget class="QRadioButton" name="A_first">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>170</y>
+     <width>100</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>TsangerYuMo W03</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>A队先手</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="B_first">
+   <property name="geometry">
+    <rect>
+     <x>1130</x>
+     <y>170</y>
+     <width>100</width>
+     <height>17</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>TsangerYuMo W03</family>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>B队先手</string>
+   </property>
+  </widget>
   <action name="actionyes">
    <property name="text">
     <string>yes</string>
@@ -3996,6 +4034,8 @@
   <zorder>r1_charm_B_10</zorder>
   <zorder>r1_charm_B_11</zorder>
   <zorder>current_operation</zorder>
+  <zorder>A_first</zorder>
+  <zorder>B_first</zorder>
  </widget>
  <resources>
   <include location="mis.qrc"/>

@@ -13,9 +13,9 @@ basedir = os.path.dirname(__file__)
 os.chdir(basedir)
 
 from PyQt6 import QtWidgets, QtGui, QtCore, QtMultimedia
-from PyQt6.QtWidgets import QWidget
+from PyQt6.QtWidgets import QWidget, QRadioButton
 from PyQt6.QtGui import QPixmap, QPalette
-from PyQt6.QtCore import pyqtSignal, QUrl
+from PyQt6.QtCore import pyqtSignal, QUrl, QSize
 from PyQt6.QtMultimedia import QMediaPlayer, QAudioOutput
 from Code import ui_BP, init_state, update, reset, next
 
@@ -119,12 +119,18 @@ class window_BP(QWidget, ui_BP.Ui_BP):
 	def __init__(self):
 		super(window_BP, self).__init__()
 
+		self.aspect_ratio = 16/9
+		self.resize(1920, 1080)
+
 		self.setupUi(self)
 
 		global state
 		global build
 		init_state.init_state(self, state, build)
 
+		self.A_first.clicked.connect(self.update_order_A)
+		self.B_first.clicked.connect(self.update_order_B)
+	
 		self.actionyes.triggered.connect(self.deactivate_Fury)
 		self.actionno.triggered.connect(self.activate_Fury)
 
@@ -232,6 +238,18 @@ class window_BP(QWidget, ui_BP.Ui_BP):
 		self.charm_B_38.clicked.connect(self.update_charm_B_38)
 		self.charm_B_39.clicked.connect(self.update_charm_B_39)	
 
+	def update_order_A(self):
+		self.A_first.setChecked(True)
+		self.A_first.setText("A队先手")
+		self.B_first.setChecked(False)
+		self.B_first.setText("")
+
+	def update_order_B(self):
+		self.A_first.setChecked(False)
+		self.A_first.setText("")
+		self.B_first.setChecked(True)
+		self.B_first.setText("B队先手")
+
 	def deactivate_Fury(self):
 		global state
 		state["Fury"] = False
@@ -290,7 +308,6 @@ class window_BP(QWidget, ui_BP.Ui_BP):
 		win.setWindowTitle("确认重置 by Stellalalalalalalalalala")
 		win.setWindowIcon(QtGui.QIcon(os.path.join(basedir, "Image/developer/ghost.png")))
 		qss_icon= """ QLabel {border-image: url("Image/developer/reset.png") 0 0 0 0 strech strech; } """
-		print(qss_icon)
 		win.icon_stella.setStyleSheet(qss_icon)
 		win.win_reset_closed.connect(self.update_all)
 		win.show()
@@ -298,6 +315,11 @@ class window_BP(QWidget, ui_BP.Ui_BP):
 	def update_all(self):
 		global state
 		global build
+
+		self.A_first.setChecked(False)
+		self.B_first.setChecked(False)
+		self.A_first.setText("A队先手")
+		self.B_first.setText("B队先手")
 
 		update.update_team.update_team(self, state)
 		update.update_binding.update_binding(self, state)
@@ -339,51 +361,22 @@ class window_BP(QWidget, ui_BP.Ui_BP):
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
-
-			for i_charm in range(len(state["charm_A"])):
-				if state["charm_A"][i_charm] == 1:
-					state["charm_A"][i_charm] = 2
-					state["charm_B"][i_charm] = 2
-			
-			update.update_charm.update_charm(self, state, build)
-
-			for i_chosen in range(len(build["chosen_A"])):
-				for i_equip in range(len(state["equip_A"])):
-					if state["equip_A"][i_equip] == 0:
-						state["equip_A"][i_equip] = 1
-						build["current_A"][i_equip] = build["chosen_A"][i_chosen]
-						break
-
-			update.update_equip.update_equip(self, state, build)
-
-			build["chosen_A"] = []
-			self.play_sound_charm()
+			if self.A_first.isChecked():
+				self.update_Equip_A()
+			if self.B_first.isChecked():
+				self.update_Equip_B()
 
 		elif  state["step"] == 4:
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
 
-			for i_charm in range(len(state["charm_B"])):
-				if state["charm_B"][i_charm] == 1:
-					state["charm_A"][i_charm] = 2
-					state["charm_B"][i_charm] = 2
-			
-			update.update_charm.update_charm(self, state, build)
+			if self.A_first.isChecked():
+				self.update_Equip_B()
+			if self.B_first.isChecked():
+				self.update_Equip_A()
 
-			for i_chosen in range(len(build["chosen_B"])):
-				for i_equip in range(len(state["equip_B"])):
-					if state["equip_B"][i_equip] == 0:
-						state["equip_B"][i_equip] = 1
-						build["current_B"][i_equip] = build["chosen_B"][i_chosen]
-						break
-
-			update.update_equip.update_equip(self, state, build)
-
-			build["chosen_B"] = []
-			self.play_sound_charm()
-
-		elif  state["step"] == 5:
+		elif  (state["step"] == 5) & self.A_first.isChecked():
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
@@ -404,7 +397,7 @@ class window_BP(QWidget, ui_BP.Ui_BP):
 			update.update_equip.update_equip(self, state, build)
 			self.play_sound_charm()
 
-		elif  state["step"] == 6:
+		elif  (state["step"] == 6) & self.A_first.isChecked():
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
@@ -431,16 +424,39 @@ class window_BP(QWidget, ui_BP.Ui_BP):
 			build["chosen_B"] = []
 			self.play_sound_charm()
 
-		elif  state["step"] == 7:
+		elif  (state["step"] == 5) & self.B_first.isChecked():
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
 
-			for i_charm in range(len(state["charm_B"])):
-				if state["charm_B"][i_charm] == 1:
+			for i_charm in range(len(state["charm_A"])):
+				if state["charm_A"][i_charm] == 1:
 					state["charm_A"][i_charm] = 2
-					state["charm_B"][i_charm] = 2
 			
+			update.update_charm.update_charm(self, state, build)
+
+			for i_chosen in range(len(build["chosen_A"])):
+				for i_equip in range(len(state["equip_A"])):
+					if state["equip_A"][i_equip] == 0:
+						state["equip_A"][i_equip] = 1
+						build["current_A"][i_equip] = build["chosen_A"][i_chosen]
+						break
+
+			update.update_equip.update_equip(self, state, build)
+			self.play_sound_charm()
+
+		elif  (state["step"] == 6) & self.B_first.isChecked():
+			state["step"] = state["step"] + 1
+			update.update_team.update_team(self, state)
+			update.update_operation.update_operation(self, state)
+
+			for i_charm_B in range(len(state["charm_B"])):
+				if state["charm_B"][i_charm_B] == 1:
+					state["charm_B"][i_charm_B] = 2
+					state["charm_A"][i_charm_B] = 2
+				if (i_charm_B + 1 ) in build["chosen_A"]:
+					state["charm_B"][i_charm_B] = 2		
+
 			update.update_charm.update_charm(self, state, build)
 
 			for i_chosen in range(len(build["chosen_B"])):
@@ -452,224 +468,109 @@ class window_BP(QWidget, ui_BP.Ui_BP):
 
 			update.update_equip.update_equip(self, state, build)
 
+			build["chosen_A"] = []
 			build["chosen_B"] = []
 			self.play_sound_charm()
+
+		elif  state["step"] == 7:
+			state["step"] = state["step"] + 1
+			update.update_team.update_team(self, state)
+			update.update_operation.update_operation(self, state)
+
+			if self.A_first.isChecked():
+				self.update_Equip_B()
+			if self.B_first.isChecked():
+				self.update_Equip_A()
 
 		elif  state["step"] == 8:
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
 
-			for i_charm in range(len(state["charm_A"])):
-				if state["charm_A"][i_charm] == 1:
-					state["charm_A"][i_charm] = 2
-					state["charm_B"][i_charm] = 2
-			
-			update.update_charm.update_charm(self, state, build)
-
-			for i_chosen in range(len(build["chosen_A"])):
-				for i_equip in range(len(state["equip_A"])):
-					if state["equip_A"][i_equip] == 0:
-						state["equip_A"][i_equip] = 1
-						build["current_A"][i_equip] = build["chosen_A"][i_chosen]
-						break
-
-			update.update_equip.update_equip(self, state, build)
-
-			build["chosen_A"] = []
-			self.play_sound_charm()
+			if self.A_first.isChecked():
+				self.update_Equip_A()
+			if self.B_first.isChecked():
+				self.update_Equip_B()
 
 		elif  state["step"] == 9:
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
 				 
-			for i_charm in range(len(state["charm_B"])):
-				if state["charm_B"][i_charm] == 1:
-					state["charm_A"][i_charm] = 2
-					state["charm_B"][i_charm] = 2
-			
-			update.update_charm.update_charm(self, state, build)
-
-			for i_chosen in range(len(build["chosen_B"])):
-				for i_equip in range(len(state["equip_B"])):
-					if state["equip_B"][i_equip] == 0:
-						state["equip_B"][i_equip] = 1
-						build["current_B"][i_equip] = build["chosen_B"][i_chosen]
-						break
-
-			update.update_equip.update_equip(self, state, build)
-
-			build["chosen_B"] = []
-			self.play_sound_charm()
+			if self.A_first.isChecked():
+				self.update_Equip_B()
+			if self.B_first.isChecked():
+				self.update_Equip_A()
 
 		elif  state["step"] == 10:
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
 
-			for i_charm in range(len(state["charm_A"])):
-				if state["charm_A"][i_charm] == 1:
-					state["charm_A"][i_charm] = 2
-					state["charm_B"][i_charm] = 2
-			
-			update.update_charm.update_charm(self, state, build)
-
-			for i_chosen in range(len(build["chosen_A"])):
-				for i_equip in range(len(state["equip_A"])):
-					if state["equip_A"][i_equip] == 0:
-						state["equip_A"][i_equip] = 1
-						build["current_A"][i_equip] = build["chosen_A"][i_chosen]
-						break
-
-			update.update_equip.update_equip(self, state, build)
-
-			build["chosen_A"] = []
-			self.play_sound_charm()
+			if self.A_first.isChecked():
+				self.update_Equip_A()
+			if self.B_first.isChecked():
+				self.update_Equip_B()
 
 		elif  state["step"] == 11:
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
 
-			for i_charm in range(len(state["charm_A"])):
-				if state["charm_A"][i_charm] == 1:
-					state["charm_A"][i_charm] = 2
-					state["charm_B"][i_charm] = 2
-			
-			update.update_charm.update_charm(self, state, build)
-
-			for i_chosen in range(len(build["chosen_A"])):
-				for i_equip in range(len(state["equip_A"])):
-					if state["equip_A"][i_equip] == 0:
-						state["equip_A"][i_equip] = 1
-						build["current_A"][i_equip] = build["chosen_A"][i_chosen]
-						break
-
-			update.update_equip.update_equip(self, state, build)
-
-			build["chosen_A"] = []
-			self.play_sound_charm()
+			if self.A_first.isChecked():
+				self.update_Equip_A()
+			if self.B_first.isChecked():
+				self.update_Equip_B()
 
 		elif  state["step"] == 12:
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
 
-			for i_charm in range(len(state["charm_B"])):
-				if state["charm_B"][i_charm] == 1:
-					state["charm_A"][i_charm] = 2
-					state["charm_B"][i_charm] = 2
-			
-			update.update_charm.update_charm(self, state, build)
-
-			for i_chosen in range(len(build["chosen_B"])):
-				for i_equip in range(len(state["equip_B"])):
-					if state["equip_B"][i_equip] == 0:
-						state["equip_B"][i_equip] = 1
-						build["current_B"][i_equip] = build["chosen_B"][i_chosen]
-						break
-
-			update.update_equip.update_equip(self, state, build)
-
-			build["chosen_B"] = []
-			self.play_sound_charm()
+			if self.A_first.isChecked():
+				self.update_Equip_B()
+			if self.B_first.isChecked():
+				self.update_Equip_A()
 
 		elif  state["step"] == 13:
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
 
-			for i_charm in range(len(state["charm_A"])):
-				if state["charm_A"][i_charm] == 1:
-					state["charm_A"][i_charm] = 2
-					state["charm_B"][i_charm] = 2
-			
-			update.update_charm.update_charm(self, state, build)
-
-			for i_chosen in range(len(build["chosen_A"])):
-				for i_equip in range(len(state["equip_A"])):
-					if state["equip_A"][i_equip] == 0:
-						state["equip_A"][i_equip] = 1
-						build["current_A"][i_equip] = build["chosen_A"][i_chosen]
-						break
-
-			update.update_equip.update_equip(self, state, build)
-
-			build["chosen_A"] = []
-			self.play_sound_charm()
+			if self.A_first.isChecked():
+				self.update_Equip_A()
+			if self.B_first.isChecked():
+				self.update_Equip_B()
 
 		elif  state["step"] == 14:
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
 
-			for i_charm in range(len(state["charm_B"])):
-				if state["charm_B"][i_charm] == 1:
-					state["charm_A"][i_charm] = 2
-					state["charm_B"][i_charm] = 2
-			
-			update.update_charm.update_charm(self, state, build)
-
-			for i_chosen in range(len(build["chosen_B"])):
-				for i_equip in range(len(state["equip_B"])):
-					if state["equip_B"][i_equip] == 0:
-						state["equip_B"][i_equip] = 1
-						build["current_B"][i_equip] = build["chosen_B"][i_chosen]
-						break
-
-			update.update_equip.update_equip(self, state, build)
-
-			build["chosen_B"] = []
-			self.play_sound_charm()
+			if self.A_first.isChecked():
+				self.update_Equip_B()
+			if self.B_first.isChecked():
+				self.update_Equip_A()
 
 		elif  state["step"] == 15:
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
 
-			for i_charm in range(len(state["charm_B"])):
-				if state["charm_B"][i_charm] == 1:
-					state["charm_A"][i_charm] = 2
-					state["charm_B"][i_charm] = 2
-			
-			update.update_charm.update_charm(self, state, build)
-
-			for i_chosen in range(len(build["chosen_B"])):
-				for i_equip in range(len(state["equip_B"])):
-					if state["equip_B"][i_equip] == 0:
-						state["equip_B"][i_equip] = 1
-						build["current_B"][i_equip] = build["chosen_B"][i_chosen]
-						break
-
-			update.update_equip.update_equip(self, state, build)
-
-			build["chosen_B"] = []
-			self.play_sound_charm()
+			if self.A_first.isChecked():
+				self.update_Equip_B()
+			if self.B_first.isChecked():
+				self.update_Equip_A()
 
 		elif  state["step"] == 16:
 			state["step"] = state["step"] + 1
 			update.update_team.update_team(self, state)
 			update.update_operation.update_operation(self, state)
 
-			for i_charm in range(len(state["charm_A"])):
-				if state["charm_A"][i_charm] == 1:
-					state["charm_A"][i_charm] = 2
-					state["charm_B"][i_charm] = 2
-			
-			update.update_charm.update_charm(self, state, build)
-
-			for i_chosen in range(len(build["chosen_A"])):
-				for i_equip in range(len(state["equip_A"])):
-					if state["equip_A"][i_equip] == 0:
-						state["equip_A"][i_equip] = 1
-						build["current_A"][i_equip] = build["chosen_A"][i_chosen]
-						break
-
-			update.update_equip.update_equip(self, state, build)
-
-			build["chosen_A"] = []
-			self.play_sound_charm()
+			if self.A_first.isChecked():
+				self.update_Equip_A()
+			if self.B_first.isChecked():
+				self.update_Equip_B()
 
 		elif  state["step"] == 17:
 			state["step"] = state["step"] + 1
@@ -718,6 +619,14 @@ class window_BP(QWidget, ui_BP.Ui_BP):
 		if state["round"] == 0:
 			build["round_1_A"] = build["current_A"]
 			build["round_1_B"] = build["current_B"]
+
+			if self.A_first.isChecked():
+				self.A_first.setChecked(False)
+				self.B_first.setChecked(True)
+			if self.B_first.isChecked():
+				self.A_first.setChecked(True)
+				self.B_first.setChecked(False)
+
 		elif state["round"] == 1:
 			build["round_2_A"] = build["current_A"]
 			build["round_2_B"] = build["current_B"]
@@ -3152,6 +3061,51 @@ class window_BP(QWidget, ui_BP.Ui_BP):
 		update.update_charm.update_charm(self, state, build)
 		update.update_notch.update_notch(self, state)
 
+	def update_Equip_A(self):
+		global state
+		global build
+
+		for i_charm in range(len(state["charm_A"])):
+			if state["charm_A"][i_charm] == 1:
+				state["charm_A"][i_charm] = 2
+				state["charm_B"][i_charm] = 2
+		
+		update.update_charm.update_charm(self, state, build)
+
+		for i_chosen in range(len(build["chosen_A"])):
+			for i_equip in range(len(state["equip_A"])):
+				if state["equip_A"][i_equip] == 0:
+					state["equip_A"][i_equip] = 1
+					build["current_A"][i_equip] = build["chosen_A"][i_chosen]
+					break
+
+		update.update_equip.update_equip(self, state, build)
+
+		build["chosen_A"] = []
+		self.play_sound_charm()
+
+	def update_Equip_B(self):
+		global state
+		global build
+
+		for i_charm in range(len(state["charm_B"])):
+			if state["charm_B"][i_charm] == 1:
+				state["charm_B"][i_charm] = 2
+				state["charm_A"][i_charm] = 2
+		
+		update.update_charm.update_charm(self, state, build)
+
+		for i_chosen in range(len(build["chosen_B"])):
+			for i_equip in range(len(state["equip_B"])):
+				if state["equip_B"][i_equip] == 0:
+					state["equip_B"][i_equip] = 1
+					build["current_B"][i_equip] = build["chosen_B"][i_chosen]
+					break
+
+		update.update_equip.update_equip(self, state, build)
+
+		build["chosen_B"] = []
+		self.play_sound_charm()
 
 	def play_sound_binding(self):
 		self.player = QMediaPlayer()
@@ -3171,9 +3125,18 @@ class window_BP(QWidget, ui_BP.Ui_BP):
 		self.player.play()
 
 
+	def resizeEvent(self, event):
+		new_width = event.size().width()
+		new_height = event.size().height()
+		adjusted_height = int(new_width / self.aspect_ratio)
+		self.resize(QSize(new_width, adjusted_height))
+		super().resizeEvent(event)
+
+
 def main():
 	app = QtWidgets.QApplication(sys.argv)
 	win = window_BP()
+	#win.setMaximumSize(1920, 1080)
 	win.setFixedSize(1920, 1080)
 	win.setWindowTitle("2025 渔村杯 BP赛小工具 by Stellalalalalalalalalala(史黛拉啦啦啦)")
 	win.setWindowIcon(QtGui.QIcon("Image/developer/ghost.png"))

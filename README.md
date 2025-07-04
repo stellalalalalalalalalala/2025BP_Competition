@@ -1,3 +1,5 @@
+$${\color{red} 想直接使用工具，可以单独下载压缩包 2025\\_BP\\_Tool\\_v1.1.zip }$$
+
 ## 项目简介  About the Project
 
 这是一个辅助空洞骑士BP赛制下挑选护符和上锁的小工具
@@ -7,10 +9,6 @@ An assistant tool for picking charms and bindings based on BP rules for a Hollow
 BP赛赛制参考文件: https://docs.qq.com/doc/DQXdXdkpEcWp5Tmxm
 
 BP rules (Chinese only): https://docs.qq.com/doc/DQXdXdkpEcWp5Tmxm
-
-
-$${\color{red} 想直接使用工具，可以单独下载压缩包 2025\\_BP\\_Tool\\_v1.1.zip }$$
-
 
 
 ## 开发工具  Built with
